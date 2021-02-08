@@ -1,0 +1,5 @@
+.dialogs{
+  display: grid;
+  height: 100%;
+  grid-template:  1fr / 3fr 12fr;
+}
