@@ -1,0 +1,9 @@
+.content{
+  grid-area: cont;
+  grid-column: 3 / 4;
+  background-color: darkred;
+}
+.content_img{
+  height: 100px;
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+.container{
+  grid-area: footer;
+  background-color: coral;
+  align-items: center;
+  display: grid;
+  grid-template: 1fr / 1fr 10fr minmax(auto, 200px) 1fr;
+  
+  
+}
+.text{
+  font-size: 15px;
+  grid-column: 2 / 4;
+}

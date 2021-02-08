@@ -1,0 +1,7 @@
+
+.sidebar{
+  grid-area: sidebar;
+  grid-column: 2 / 3;
+  padding: 10px 15px;
+  background-color: darkgreen;
+}

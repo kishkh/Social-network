@@ -1,0 +1,7 @@
+.header{
+  grid-area: header;
+  display: grid;
+  align-items: center;
+  grid-template: 1fr / 1fr 100px minmax(auto, 10fr) minmax(auto, 100px) 1fr;
+  background-color: darkblue;
+}
