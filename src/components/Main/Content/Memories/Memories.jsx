@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Memories.module.css';
 import MyMemories from './MyMemories/MyMemories';
 
-const Memories = () => {
+const Memories = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.addPost}>
@@ -12,7 +12,7 @@ const Memories = () => {
           <button>Add</button>
         </div>
       </div>
-      <MyMemories />
+      <MyMemories data={props.data}/>
     </div>
   );
 }

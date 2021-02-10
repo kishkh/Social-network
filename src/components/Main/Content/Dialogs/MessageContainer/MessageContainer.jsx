@@ -1,16 +1,23 @@
 import React from 'react';
-import Message from './Message/Message';
+import { Route } from 'react-router-dom';
+import Messages from './Messages/Messages';
 import classes from './MessageContainer.module.css';
 
-const MessageContainer = () => {
+const MessageContainer = (props) => {
+  const messages = props.data.map(item => {
+    return (
+      <Route 
+        path={`/dialogs/${item.idName}`} 
+        render={() => <Messages data={item.messages} />}
+      />
+    )
+  });
+  
   return (
-    <div className={classes.messageContainer}>
-      <Message message='Some message' />
-      <Message message='Some message second' />
-      <Message message='Some message third' />
-      <Message message='Some message forth' />
+    <div className={classes.messageContainer} >
+      { messages }
     </div>
-  );
+  )
 }
 
 export default MessageContainer;

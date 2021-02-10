@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Nodes.module.css';
 import MyNodes from './MyNodes/MyNodes';
 
-const Nodes = () => {
+const Nodes = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.addPost}>
@@ -12,7 +12,7 @@ const Nodes = () => {
           <button>Add</button>
         </div>
       </div>
-      <MyNodes />
+      <MyNodes data={props.data}/>
     </div>
   );
 }
