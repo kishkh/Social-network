@@ -2,14 +2,14 @@ import React from 'react';
 import Dialog from './Dialog/Dialog';
 import classes from './DialogContainer.module.css';
 
-const DialogContainer = () => {
+const DialogContainer = (props) => {
+  const dialogs =  props.data.map( item => {
+  return <Dialog dialogName={item.name} id={item.id} />
+  })
+  console.log(dialogs);
   return (
     <div className={classes.dialogContainer}>
-      <Dialog dialogName='Sasha' id='1' />
-      <Dialog dialogName='Dasha' id='2' />
-      <Dialog dialogName='Masha' id='3' />
-      <Dialog dialogName='Washa' id='4' />
-      <Dialog dialogName='Tasha' id='5' />
+      { dialogs }
     </div>
   );
 }

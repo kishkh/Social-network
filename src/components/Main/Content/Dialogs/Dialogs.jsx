@@ -3,11 +3,12 @@ import DialogContainer from './DialogContainer/DialogContainer';
 import classes from './Dialogs.module.css';
 import MessageContainer from './MessageContainer/MessageContainer';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+  console.log(props.data.dialogName);
   return (
     <div className={classes.dialogs}>
-      <DialogContainer />
-      <MessageContainer />
+      <DialogContainer data={props.data.dialogName}/>
+      <MessageContainer data={props.data.messagesData} />
     </div>
   );
 }

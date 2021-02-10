@@ -4,7 +4,7 @@ import classes from './Node.module.css';
 const Node = (props) => {
   return (
     <div className={classes.container}>
-      <span>{props.text}</span>
+      <span># {props.id} - {props.text}</span>
       <button>Forget</button>
     </div>
   );

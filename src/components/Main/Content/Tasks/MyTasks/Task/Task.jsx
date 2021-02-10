@@ -4,7 +4,7 @@ import classes from './Task.module.css';
 const Task = (props) => {
   return (
     <div className={classes.container}>
-      <span>{props.text}</span>
+      <span> id{props.id} - {props.text}</span>
       <button>Forget</button>
     </div>
   );

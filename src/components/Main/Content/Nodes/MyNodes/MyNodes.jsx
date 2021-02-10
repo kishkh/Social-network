@@ -1,14 +1,15 @@
 import React from 'react';
 import classes from './MyNodes.module.css';
 import Node from './Node/Node';
-const MyNodes = () => {
+const MyNodes = (props) => {
+  const nodes = props.data.map(item => {
+    return <Node text={item.node} id={item.idNode}/>
+  })
+
   return (
 
     <div className={classes.container}>
-      <Node text='Some text' />
-      <Node text='Hi every one' />
-      <Node text='Let is writing long ' />
-      <Node text='Last post' />
+      { nodes }
     </div>
   );
 }

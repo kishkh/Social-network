@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Tasks.module.css';
 import MyTasks from './MyTasks/MyTasks';
 
-const Tasks = () => {
+const Tasks = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.addPost}>
@@ -12,7 +12,7 @@ const Tasks = () => {
           <button>Add</button>
         </div>
       </div>
-      <MyTasks />
+      <MyTasks data={props.data}/>
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 import classes from './MyTasks.module.css';
 import Task from './Task/Task';
-const MyTasks = () => {
+const MyTasks = (props) => {
+  
+  const tasks = props.data.map(item => {
+    return <Task text={item.task} id={item.idTask} />
+  })
+  
   return (
-
     <div className={classes.container}>
-      <Task text='Some text' />
-      <Task text='Hi every one' />
-      <Task text='Let is writing long ' />
-      <Task text='Last post' />
+      { tasks }
     </div>
   );
 }
