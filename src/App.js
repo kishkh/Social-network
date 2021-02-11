@@ -11,7 +11,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Main data={props.data}/>
+        <Main data={props.state}/>
         <Footer />
       </div>
     </BrowserRouter>

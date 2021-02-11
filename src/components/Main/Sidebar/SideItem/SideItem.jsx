@@ -5,7 +5,9 @@ import classes from './SideItem.module.css';
 const SideItem = (props) => {
   return (
     <div className={classes.item}>
-      <NavLink to={props.link} activeClassName={classes.active} >{props.name}</NavLink>
+      <NavLink 
+        to={props.link} activeClassName={classes.active} >{props.name}
+      </NavLink>
     </div>
   )
 }

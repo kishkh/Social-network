@@ -8,7 +8,7 @@ const MessageContainer = (props) => {
     return (
       <Route 
         path={`/dialogs/${item.idName}`} 
-        render={() => <Messages data={item.messages} />}
+        render={() => <Messages data={item.messages} ava={props.ava} />}
       />
     )
   });

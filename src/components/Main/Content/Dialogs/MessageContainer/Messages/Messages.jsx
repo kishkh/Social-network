@@ -1,17 +1,22 @@
 import React from 'react';
 import Message from './Message/Message';
+import classes from './Messages.module.css';
 
-const MessageContainer = (props) => {
+const Messages = (props) => {
   const messages = props.data.map(item => {
-        return <Message message={item.message} id={item.idMessage} />
+    const ava = props.ava.filter(ava => ava.id === item.idUser)
+        return <Message 
+          ava={ava[0]}
+          message={item.message} 
+          id={item.idUser} />
   });
    
   
   return (
-    <div>
+    <div className={classes.container}>
       { messages }
     </div>
   );
 }
 
-export default MessageContainer;
+export default Messages;
