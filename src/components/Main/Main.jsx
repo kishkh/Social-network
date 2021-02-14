@@ -6,8 +6,8 @@ import Sidebar from './Sidebar/Sidebar';
 const Main = (props) => {
   return (
     <div className={classes.main}>
-      <Sidebar />
-      <Content data={props.data}/>
+      <Sidebar friends={props.store.friends} users={props.store.users}/>
+      <Content store={props.store} dispatch={props.dispatch} />
     </div>
   )
 }

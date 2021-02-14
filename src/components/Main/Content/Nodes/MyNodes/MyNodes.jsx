@@ -3,7 +3,7 @@ import classes from './MyNodes.module.css';
 import Node from './Node/Node';
 const MyNodes = (props) => {
   const nodes = props.data.map(item => {
-    return <Node text={item.node} id={item.idNode}/>
+    return <Node dispatch={props.dispatch} date={item.date} text={item.node} id={item.idNode}/>
   })
 
   return (
