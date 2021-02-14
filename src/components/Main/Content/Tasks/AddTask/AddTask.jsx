@@ -1,14 +1,14 @@
 import React from 'react';
-import classes from './AddNode.module.css';
-import { updateNodeValueCreator, addNodeCreator } from './../../../../../redux/reducers/nodes-reducer';
+import classes from './AddTask.module.css';
+import { updateTaskValueCreator, addTaskCreator } from '../../../../../redux/reducers/tasks-reducer';
 
-const AddNode = (props) => {
+const AddTask = (props) => {
   const newNodeElement = React.createRef();
   const updateTextValue = () => {
-    props.dispatch(updateNodeValueCreator(newNodeElement.current.value));
+    props.dispatch(updateTaskValueCreator(newNodeElement.current.value));
   }
   const addNode = () => {
-    props.dispatch(addNodeCreator());
+    props.dispatch(addTaskCreator());
   }
   return (
     <div className={classes.container}>
@@ -33,4 +33,4 @@ const AddNode = (props) => {
   );
 }
 
-export default AddNode;
+export default AddTask;

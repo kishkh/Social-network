@@ -1,8 +1,78 @@
 .container{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  width: 90%;
+  box-sizing: border-box;
+  border-radius: 0;
+  border: solid 2px gray;
+  margin-bottom: 10px;
+  background-color: rgb(37, 63, 63);
 }
-.container span{
+
+
+.text{
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  font-size: 15px;
+}
+.smallContainer{
+  border:  rgb(37, 63, 63) 2px solid;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: lightslategray;
+  width: 10%;
+  color: rgb(37, 63, 63);
+}
+.small{ 
+  font-size: 8px;
+  padding: 3px;
+  width: 90%;
+  word-wrap: break-word;
+}
+
+.node{
+  padding: 10px 5px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  width: 80%;
   color: yellow;
+}
+
+.btnContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 10%;
+
+  border:  rgb(37, 63, 63) 1px solid;
+  
+}
+.btnDel{
+  border:1px solid rgb(37, 63, 63);
+  cursor: pointer;
+  height: 50%;
+  display: flex;
+  color:  rgb(37, 63, 63);
+  align-items: center;
+  justify-content: center;
+  background-color: crimson;
+  
+}
+.btnFav{
+  border:  rgb(37, 63, 63) 1px solid;
+  cursor: pointer;
+  color:  rgb(37, 63, 63);
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  
+}
+.btn span {
+  font-size: 20px;
+  font-weight: 600;
+  color: darkslategray !important;
 }
