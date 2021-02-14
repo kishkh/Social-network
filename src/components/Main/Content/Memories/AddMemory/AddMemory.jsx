@@ -1,14 +1,14 @@
 import React from 'react';
-import classes from './AddNode.module.css';
-import { updateNodeValueCreator, addNodeCreator } from './../../../../../redux/reducers/nodes-reducer';
+import classes from './AddMemory.module.css';
+import { updateMemoryValueCreator, addMemoryCreator } from '../../../../../redux/reducers/memories-reducer';
 
-const AddNode = (props) => {
+const AddMemory = (props) => {
   const newNodeElement = React.createRef();
   const updateTextValue = () => {
-    props.dispatch(updateNodeValueCreator(newNodeElement.current.value));
+    props.dispatch(updateMemoryValueCreator(newNodeElement.current.value));
   }
-  const addNode = () => {
-    props.dispatch(addNodeCreator());
+  const addMemory = () => {
+    props.dispatch(addMemoryCreator());
   }
   return (
     <div className={classes.container}>
@@ -16,7 +16,7 @@ const AddNode = (props) => {
       <div className={classes.addPost}>
         <button
           className={classes.btn}
-          onClick={addNode}
+          onClick={addMemory}
         >
           <span>+</span>
         </button>
@@ -33,4 +33,4 @@ const AddNode = (props) => {
   );
 }
 
-export default AddNode;
+export default AddMemory;

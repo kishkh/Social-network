@@ -1,15 +1,36 @@
-const initialState = [
-  {idTask: 1, task:'Do something 1'},
-  {idTask: 2, task:'Do something 2'},
-  {idTask: 3, task:'Do something 3'},
-  {idTask: 4, task:'Do something 4'},
-  {idTask: 5, task:'Do something 5'},
-  {idTask: 6, task:'Do something 6'},
-]
-
+const initialState = {
+  textValue: '', tasks: [
+    { idTask: 1, task: 'Do something 1', deadLine: '2020202', done: '' },
+  ]
+}
+let idCounter = 1;
 const tasksReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case 'Add-task':
+      if (action.task !== '') {
+        idCounter++;
+        state.tasks.push({
+          idTask: idCounter,
+          task: state.textValue,
+          deadLine: '202302',
+          done: ''
+        })
+        state.textValue = ''
+      }
+      return state;
+    case 'Update-task-value':
+      state.textValue = action.value
+      return state;
+    default:
+      return state;
+  }
 }
 
+export const addTaskCreator = () => {
+  return { type: 'Add-task'}
+}
+export const updateTaskValueCreator = (value) => {
+  return { type: 'Update-task-value', value: value}
+}
 
 export default tasksReducer;

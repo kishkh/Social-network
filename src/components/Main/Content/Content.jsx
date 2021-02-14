@@ -19,10 +19,10 @@ const Content = (props) => {
         path='/dialogs' render={() => <Dialogs users={users} data={dialogs} dispatch={props.dispatch} />}
       />
       <Route
-        path='/tasks' render={() => <Tasks data={tasks} />}
+        path='/tasks' render={() => <Tasks data={tasks} dispatch={props.dispatch}/>}
       />
       <Route
-        path='/memories' render={() => <Memories data={memories} />} 
+        path='/memories' render={() => <Memories data={memories} dispatch={props.dispatch}/>} 
       />
       <Route 
         path='/nodes' 

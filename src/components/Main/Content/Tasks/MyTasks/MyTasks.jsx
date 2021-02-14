@@ -1,10 +1,17 @@
 import React from 'react';
 import classes from './MyTasks.module.css';
 import Task from './Task/Task';
+
 const MyTasks = (props) => {
   
   const tasks = props.data.map(item => {
-    return <Task text={item.task} id={item.idTask} />
+    return (
+      <Task 
+        dispatch={props.dispatch}
+        text={item.task}
+        id={item.idTask} 
+      />
+    )
   })
   
   return (
