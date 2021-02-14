@@ -1,8 +1,48 @@
+.container{
+  display: flex;
+  position: relative;
+  flex-direction:column;
+  
+}
 .messageContainer{
   background-color: darkslategray;
   padding: 15px;
-  display: flex;
-  
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
+  display: flex; 
+
+  box-sizing: border-box;
+
+}
+
+.textarea{
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 5px;
+  justify-content: center;
+  min-height: 60px;
   
+  border-radius: 5px;
+  max-width: 100%;
+
+}
+.text{
+  width: 100%;
+  resize: none;
+  height: 90%;  
+  padding: 3px 50px 3px 5px;
+  border-radius: 3px;
+  background-color: rgb(69, 112, 112);
+}
+.btn{
+  position: absolute;
+  right: 20px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: rgb(50, 80, 80);
 }
