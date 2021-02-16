@@ -1,13 +1,12 @@
 import React from 'react';
 import classes from './Node.module.css';
-import { removeNodeCreator, favoriteNodeCreator} from '../../../../../../redux/reducers/nodes-reducer';
+
 const Node = (props) => {
-  const deleteNode = () => {
-    props.dispatch(removeNodeCreator(props.id))
+  const removeNode = () => {
+    props.onRemoveNode(props.id)
   }
   const favoriteNode = () => {
-
-    props.dispatch(favoriteNodeCreator(props.id))
+    props.onFavoriteNode(props.id)
   }
 
   return (
@@ -19,7 +18,7 @@ const Node = (props) => {
         </div>
         <span className={classes.node}>{props.text}</span>
         <div className={classes.btnContainer}>
-          <button className={classes.btnDel} onClick={deleteNode} >
+          <button className={classes.btnDel} onClick={removeNode} >
             <span>D</span>
           </button>
           <button className={classes.btnFav} onClick={favoriteNode} >
@@ -27,7 +26,6 @@ const Node = (props) => {
           </button>
         </div>
       </div>
-
     </div>
   );
 }

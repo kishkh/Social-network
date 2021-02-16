@@ -1,8 +1,7 @@
 const initialState = {
-  textValue: '',
   dialogsName: [{id:1}, {id:2}, {id:3}, {id:4}, {id:5}, {id:6}, {id:7}, {id:8}, ],
   messagesData: [
-    {idName:1, messages:[
+    {idName:1, textValue: '', messages:[
       {idMessage:1, idUser:1, message:'Some message 1'},
       {idMessage:2, idUser:1, message:'Some message 2djfndskjnfkjsnkfndkjsnfkjdsnkfjndskfnkdsjnfkndskjfndskjnfkjdsnfkjdsnkfndskfndksjnfkjsdnfkjdsnfkjndskjfnjkdsnfkjdsnfkjndskjfndskjnfkjdsnfkjdsnfkndsjkfndksjnff fdfdsjfdsfdsjnf'},
       {idMessage:3, idUser:0, message:'Some message 3'},
@@ -11,13 +10,13 @@ const initialState = {
       {idMessage:6, idUser:1, message:'Some message 6'},  
     ]
     },
-    {idName:2, messages:[
+    {idName:2, textValue: '', messages:[
       {idMessage:1, idUser:2, message:'Some message 1'},
       {idMessage:2, idUser:0, message:'Some message 2'},
       {idMessage:3, idUser:2, message:'Somdsa ds s dsdsdads sdadasdada adadad adda dadada adadada dad adad addadad adadada adada dddd ad dad adad aadada de message 3'}, 
       ]
     },
-    {idName:3, messages:[
+    {idName:3, textValue: '', messages:[
       {idMessage:1, idUser:3, message:'Some message 1'},
       {idMessage:2, idUser:0, message:'Some message 2'},
       {idMessage:3, idUser:0, message:'Some message 3'},
@@ -28,13 +27,13 @@ const initialState = {
       {idMessage:8, idUser:3, message:'Some message 8'},  
       ]
     },
-    {idName:4, messages:[
+    {idName:4, textValue: '', messages:[
       {idMessage:1, idUser:0, message:'Some message 1'},
       {idMessage:2, idUser:4, message:'Some message 2'},
        
       ]
     },
-    {idName:5, messages:[
+    {idName:5, textValue: '', messages:[
       {idMessage:1, idUser:5, message:'Some message 1'},
       {idMessage:2, idUser:0, message:'Some message 2'},
       {idMessage:3, idUser:5, message:'Some message 3'},
@@ -44,7 +43,7 @@ const initialState = {
         
       ]
     },
-    {idName:6, messages:[
+    {idName:6, textValue: '', messages:[
       {idMessage:1, idUser:6, message:'Some message 1'},
       {idMessage:2, idUser:0, message:'Some message 2'},
       {idMessage:3, idUser:6, message:'Some message 3'},
@@ -53,11 +52,11 @@ const initialState = {
       
       ]
     },
-    {idName:7, messages:[
+    {idName:7, textValue: '', messages:[
       {idMessage:1, idUser:7, message:'Some message 1'}, 
       ]
     },
-    {idName:8, messages:[
+    {idName:8, textValue: '', messages:[
       {idMessage:1, idUser:8, message:'Some message 1'},
       {idMessage:2, idUser:0, message:'Some message 2'},
       {idMessage:3, idUser:8, message:'Some message 3'},
@@ -70,16 +69,18 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'Add-Message':
-      const dialog = state.messagesData.filter(messages => messages.idName === action.id)
-      if (state.textValue !== '') {
-        dialog[0].messages.push({ idMessage: 1, idUser: 0, message: state.textValue })
-        state.textValue = ''
+    case 'Send-Message':
+      const currentDialogArr = state.messagesData.filter(messages => messages.idName === action.id)
+      const[dialog] = currentDialogArr;
+      if (dialog.textValue !== '') {
+        dialog.messages.push({ idMessage: 1, idUser: 0, message: dialog.textValue })
+        dialog.textValue = ''
       }
       return state;
 
-    case 'Change-Text-Value':
-      state.textValue = action.value;
+    case 'Update-Text-Value':
+      const d = state.messagesData.filter(messages => messages.idName === action.id)
+      d[0].textValue = action.value;
       return state;
 
     default:
@@ -87,10 +88,12 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 
-export const addMessageCreator = (id) => ({type: 'Add-Message', id: id})
+export const sendMessageCreator = (id) => {
+  return  {type: 'Send-Message', id: id}
+}
 
-export const changeTextValueCreator = (value) => {
-  return {type: 'Change-Text-Value', value: value}
+export const updateTextValueCreator = (value, id) => {
+  return {type: 'Update-Text-Value', value: value, id: id}
 }
 
 export default dialogsReducer;

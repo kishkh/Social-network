@@ -4,13 +4,16 @@ import Node from './Node/Node';
 
 const MyNodes = (props) => {
   const nodes = props.data.map(item => {
-    return <Node
-     dispatch={props.dispatch} 
-     fav={item.favorite}
-     date={item.date} 
-     text={item.node} 
-     id={item.idNode}
+    return (
+      <Node
+        onRemoveNode={props.onRemoveNode}
+        onFavoriteNode={props.onFavoriteNode}
+        fav={item.favorite}
+        date={item.date} 
+        text={item.node} 
+        id={item.idNode}
     />
+    )
   })
 
   return (

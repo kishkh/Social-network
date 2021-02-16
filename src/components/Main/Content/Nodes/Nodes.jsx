@@ -7,8 +7,16 @@ import AddNode from './AddNode/AddNode';
 const Nodes = (props) => {
   return (
     <div className={classes.container}>
-      <AddNode dispatch={props.dispatch} textValue={props.data.textValue}/>
-      <MyNodes dispatch={props.dispatch} data={props.data.nodes}/>
+      <AddNode 
+        onAddNode={props.onAddNode} 
+        onUpdateNodeValue={props.onUpdateNodeValue}
+        textValue={props.textValue}
+      />
+      <MyNodes 
+        onRemoveNode={props.onRemoveNode}
+        onFavoriteNode={props.onFavoriteNode}
+        data={props.data}
+      />
     </div>
   );
 }

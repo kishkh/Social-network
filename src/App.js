@@ -11,7 +11,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Main store={props.store} dispatch={props.dispatch} />
+        <Main state={props.state} store={props.store} dispatch={props.dispatch} />
         <Footer />
       </div>
     </BrowserRouter>

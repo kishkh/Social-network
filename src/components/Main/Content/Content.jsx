@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import classes from './Content.module.css';
-import Dialogs from './Dialogs/Dialogs';
+import DialogsContainer from './Dialogs/DialogsContainer';
 import Profile from './Profile/Profile';
 import Tasks from './Tasks/Tasks';
 import Memories from './Memories/Memories';
-import Nodes from './Nodes/Nodes';
+import NodesContainer from './Nodes/NodesContainer';
 import Settings from './Settings/Settings';
 const Content = (props) => {
-  const {profile, dialogs, tasks, memories, nodes, users, friends} = props.store;
+  const {profile, dialogs, tasks, memories, nodes, users, friends} = props.state;
   return (
     <div className={classes.content}>
 
@@ -16,7 +16,7 @@ const Content = (props) => {
         path='/profile' render={() => <Profile data={profile} />}
       />
       <Route
-        path='/dialogs' render={() => <Dialogs users={users} data={dialogs} dispatch={props.dispatch} />}
+        path='/dialogs' render={() => <DialogsContainer store={props.store} />}
       />
       <Route
         path='/tasks' render={() => <Tasks data={tasks} dispatch={props.dispatch}/>}
@@ -26,7 +26,7 @@ const Content = (props) => {
       />
       <Route 
         path='/nodes' 
-        render={() => <Nodes data={nodes} dispatch={props.dispatch} />} 
+        render={() => <NodesContainer store={props.store} />} 
       />
       <Route 
         path='/settings' render={Settings} 
