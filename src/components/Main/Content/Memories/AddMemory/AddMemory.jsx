@@ -1,22 +1,18 @@
 import React from 'react';
 import classes from './AddMemory.module.css';
-import { updateMemoryValueCreator, addMemoryCreator } from '../../../../../redux/reducers/memories-reducer';
 
 const AddMemory = (props) => {
-  const newNodeElement = React.createRef();
-  const updateTextValue = () => {
-    props.dispatch(updateMemoryValueCreator(newNodeElement.current.value));
+  const updateTextValue = (e) => {
+    props.updateMemoryValue(e.target.value)
   }
-  const addMemory = () => {
-    props.dispatch(addMemoryCreator());
-  }
+
   return (
     <div className={classes.container}>
-      <span className={classes.title}>Add new node</span>
+      <span className={classes.title}>Add your kind memories</span>
       <div className={classes.addPost}>
         <button
           className={classes.btn}
-          onClick={addMemory}
+          onClick={props.addMemory}
         >
           <span>+</span>
         </button>
@@ -25,7 +21,6 @@ const AddMemory = (props) => {
           onChange={updateTextValue}
           value={props.textValue}
           className={classes.textarea}
-          ref={newNodeElement}
         />
 
       </div>

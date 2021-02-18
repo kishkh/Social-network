@@ -2,38 +2,36 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import classes from './Content.module.css';
 import DialogsContainer from './Dialogs/DialogsContainer';
-import Profile from './Profile/Profile';
-import Tasks from './Tasks/Tasks';
-import Memories from './Memories/Memories';
 import NodesContainer from './Nodes/NodesContainer';
 import Settings from './Settings/Settings';
+import ProfileContainer from './Profile/ProfileContainer';
+import TasksContainer from './Tasks/TasksContainer';
+import MemoriesContainer from './Memories/MemoriesContainer';
 const Content = (props) => {
-  const {profile, dialogs, tasks, memories, nodes, users, friends} = props.state;
   return (
     <div className={classes.content}>
 
       <Route
-        path='/profile' render={() => <Profile data={profile} />}
+        path='/profile' render={() => <ProfileContainer />}
       />
       <Route
-        path='/dialogs' render={() => <DialogsContainer store={props.store} />}
+        path='/dialogs' render={() => <DialogsContainer />}
       />
       <Route
-        path='/tasks' render={() => <Tasks data={tasks} dispatch={props.dispatch}/>}
+        path='/tasks' render={() => <TasksContainer />}
       />
       <Route
-        path='/memories' render={() => <Memories data={memories} dispatch={props.dispatch}/>} 
+        path='/memories' render={() => <MemoriesContainer />}
       />
-      <Route 
-        path='/nodes' 
-        render={() => <NodesContainer store={props.store} />} 
+      <Route
+        path='/nodes'
+        render={() => <NodesContainer />}
       />
-      <Route 
-        path='/settings' render={Settings} 
+      <Route
+        path='/settings' render={Settings}
       />
 
     </div>
   );
 }
-
 export default Content;

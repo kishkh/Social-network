@@ -1,13 +1,13 @@
 import React from 'react';
 import classes from './Main.module.css';
 import Content from './Content/Content';
-import Sidebar from './Sidebar/Sidebar';
+import SidebarContainer from './Sidebar/SidebarContainer';
 
-const Main = (props) => {
+const Main = () => {
   return (
     <div className={classes.main}>
-      <Sidebar friends={props.state.friends} users={props.state.users}/>
-      <Content state={props.state} store={props.store} dispatch={props.dispatch} />
+      <SidebarContainer />
+      <Content />
     </div>
   )
 }

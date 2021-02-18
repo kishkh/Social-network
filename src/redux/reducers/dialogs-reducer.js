@@ -69,20 +69,22 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'Send-Message':
-      const currentDialogArr = state.messagesData.filter(messages => messages.idName === action.id)
+    case 'Send-Message':{
+      let stateCopy = JSON.parse(JSON.stringify(state))
+      const currentDialogArr = stateCopy.messagesData.filter(messages => messages.idName === action.id)
       const[dialog] = currentDialogArr;
       if (dialog.textValue !== '') {
-        dialog.messages.push({ idMessage: 1, idUser: 0, message: dialog.textValue })
+        let idMessage = dialog.messages.length + 1;
+        dialog.messages = [...dialog.messages, { idMessage: idMessage, idUser: 0, message: dialog.textValue }]
         dialog.textValue = ''
       }
-      return state;
+      return stateCopy;}
 
-    case 'Update-Text-Value':
-      const d = state.messagesData.filter(messages => messages.idName === action.id)
-      d[0].textValue = action.value;
-      return state;
-
+    case 'Update-Text-Value':{
+      let stateCopy = JSON.parse(JSON.stringify(state))
+      stateCopy.messagesData.forEach(m => m.idName === action.id ? m.textValue = action.value : m)
+      return stateCopy;
+}
     default:
       return state;
   }

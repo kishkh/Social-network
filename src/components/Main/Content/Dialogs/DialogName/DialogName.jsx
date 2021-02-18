@@ -8,7 +8,7 @@ const DialogName = (props) => {
       return user.id === item.id;
       })
     const [user] = userArr;
-    return <DialogLink name={user.name} id={user.id} ava={user.ava} />
+    return <DialogLink key={user.id} name={user.name} id={user.id} ava={user.ava} />
   })
 
   return (

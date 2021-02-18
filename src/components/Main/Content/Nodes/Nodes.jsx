@@ -15,7 +15,7 @@ const Nodes = (props) => {
       <MyNodes 
         onRemoveNode={props.onRemoveNode}
         onFavoriteNode={props.onFavoriteNode}
-        data={props.data}
+        nodes={props.nodes}
       />
     </div>
   );

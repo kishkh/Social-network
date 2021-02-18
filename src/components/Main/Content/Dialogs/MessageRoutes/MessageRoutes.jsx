@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Messages from './Messages/Messages';
+import classes from './Messages/Messages.module.css';
 
 const MessageRoutes = (props) => {
   const messageRoutes = props.messagesData.map(item => {
     return (
       <Route
+        key={item.idName}
         path={`/dialogs/${item.idName}`}
         render={() => (
           <Messages
@@ -22,7 +24,7 @@ const MessageRoutes = (props) => {
   });
 
   return (
-    <div>
+    <div className={classes.container}>
       {messageRoutes}
     </div>
 

@@ -7,6 +7,7 @@ const Messages = (props) => {
     const ava = props.users.filter(ava => ava.id === item.idUser)
     return (
       <Message
+        key={item.idMessage}
         ava={ava[0]} message={item.message}
         id={item.idUser} idMessage={item.idMessage}
       />

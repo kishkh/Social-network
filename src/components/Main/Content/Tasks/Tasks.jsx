@@ -6,10 +6,12 @@ import AddTask from './AddTask/AddTask';
 const Tasks = (props) => {
   return (
     <div className={classes.container}>
-      <AddTask dispatch={props.dispatch}/>
-      <MyTasks 
-        data={props.data.tasks}
-        dispatch={props.dispatch}/>
+      <AddTask 
+        updateTaskValue={props.updateTaskValue}
+        addTask={props.addTask} 
+        textValue={props.textValue}
+      />
+      <MyTasks tasks={props.tasks} />
     </div>
   );
 }

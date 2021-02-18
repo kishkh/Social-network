@@ -3,9 +3,10 @@ import classes from './MyNodes.module.css';
 import Node from './Node/Node';
 
 const MyNodes = (props) => {
-  const nodes = props.data.map(item => {
+  const nodes = props.nodes.map(item => {
     return (
       <Node
+        key={item.idNode}
         onRemoveNode={props.onRemoveNode}
         onFavoriteNode={props.onFavoriteNode}
         fav={item.favorite}

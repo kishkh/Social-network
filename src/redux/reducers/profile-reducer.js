@@ -6,18 +6,11 @@ const initialState = {
     age: '27',
     placeOfBirth: 'Earth',
     id:0,
-  },
-  stats: {
-    tasks: 41,
-    tasksDone: 38,
-    tasksFail: 3,
-    memories: 15,
-    nodes: 22
   }
 }
 
 const profileReducer = (state = initialState, action) => {
-  return state;
+      return state;
 }
 
 

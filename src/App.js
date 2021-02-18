@@ -6,12 +6,12 @@ import Header from './components/Header/Header';
 import { BrowserRouter } from 'react-router-dom';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Main state={props.state} store={props.store} dispatch={props.dispatch} />
+        <Main />
         <Footer />
       </div>
     </BrowserRouter>

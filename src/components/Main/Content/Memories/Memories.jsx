@@ -6,8 +6,12 @@ import MyMemories from './MyMemories/MyMemories';
 const Memories = (props) => {
   return (
     <div className={classes.container}>
-      <AddMemory data={props.data} dispatch={props.dispatch}/>
-      <MyMemories data={props.data}/>
+      <AddMemory 
+        textValue={props.textValue} 
+        addMemory={props.addMemory}
+        updateMemoryValue={props.updateMemoryValue}
+      />
+      <MyMemories memories={props.memories}/>
     </div>
   );
 }
