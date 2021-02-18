@@ -1,39 +1,37 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import classes from './Content.module.css';
-import Dialogs from './Dialogs/Dialogs';
-import Profile from './Profile/Profile';
-import Tasks from './Tasks/Tasks';
-import Memories from './Memories/Memories';
-import Nodes from './Nodes/Nodes';
+import DialogsContainer from './Dialogs/DialogsContainer';
+import NodesContainer from './Nodes/NodesContainer';
 import Settings from './Settings/Settings';
+import ProfileContainer from './Profile/ProfileContainer';
+import TasksContainer from './Tasks/TasksContainer';
+import MemoriesContainer from './Memories/MemoriesContainer';
 const Content = (props) => {
-  const {profile, dialogs, tasks, memories, nodes, users, friends} = props.store;
   return (
     <div className={classes.content}>
 
       <Route
-        path='/profile' render={() => <Profile data={profile} />}
+        path='/profile' render={() => <ProfileContainer />}
       />
       <Route
-        path='/dialogs' render={() => <Dialogs users={users} data={dialogs} dispatch={props.dispatch} />}
+        path='/dialogs' render={() => <DialogsContainer />}
       />
       <Route
-        path='/tasks' render={() => <Tasks data={tasks} dispatch={props.dispatch}/>}
+        path='/tasks' render={() => <TasksContainer />}
       />
       <Route
-        path='/memories' render={() => <Memories data={memories} dispatch={props.dispatch}/>} 
+        path='/memories' render={() => <MemoriesContainer />}
       />
-      <Route 
-        path='/nodes' 
-        render={() => <Nodes data={nodes} dispatch={props.dispatch} />} 
+      <Route
+        path='/nodes'
+        render={() => <NodesContainer />}
       />
-      <Route 
-        path='/settings' render={Settings} 
+      <Route
+        path='/settings' render={Settings}
       />
 
     </div>
   );
 }
-
 export default Content;

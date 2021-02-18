@@ -1,22 +1,17 @@
 import React from 'react';
 import classes from './AddTask.module.css';
-import { updateTaskValueCreator, addTaskCreator } from '../../../../../redux/reducers/tasks-reducer';
 
 const AddTask = (props) => {
-  const newNodeElement = React.createRef();
-  const updateTextValue = () => {
-    props.dispatch(updateTaskValueCreator(newNodeElement.current.value));
-  }
-  const addNode = () => {
-    props.dispatch(addTaskCreator());
+  const updateTextValue = (e) => {
+    props.updateTaskValue(e.target.value)
   }
   return (
     <div className={classes.container}>
-      <span className={classes.title}>Add new node</span>
+      <span className={classes.title}>Add new task</span>
       <div className={classes.addPost}>
         <button
           className={classes.btn}
-          onClick={addNode}
+          onClick={props.addTask}
         >
           <span>+</span>
         </button>
@@ -25,7 +20,6 @@ const AddTask = (props) => {
           onChange={updateTextValue}
           value={props.textValue}
           className={classes.textarea}
-          ref={newNodeElement}
         />
 
       </div>

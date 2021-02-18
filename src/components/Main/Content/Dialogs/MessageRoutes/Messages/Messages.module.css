@@ -12,6 +12,8 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  flex-direction:column;
+
   display: flex; 
 
   box-sizing: border-box;

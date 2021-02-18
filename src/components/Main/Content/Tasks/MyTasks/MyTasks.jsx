@@ -4,10 +4,10 @@ import Task from './Task/Task';
 
 const MyTasks = (props) => {
   
-  const tasks = props.data.map(item => {
+  const tasks = props.tasks.map(item => {
     return (
       <Task 
-        dispatch={props.dispatch}
+        key={item.idTask}
         text={item.task}
         id={item.idTask} 
       />
