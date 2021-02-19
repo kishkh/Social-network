@@ -1,16 +1,21 @@
 .container{
   display: flex;
   margin-top: 30px;
-  border-radius: 5px;
-  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
   background-color: rgb(33, 51, 28);
-  align-items: center;
-  width: 120px;
-  height: 40px;
+  flex-direction: column;
+  width: 50px;
+  overflow-y: hidden;
+  max-height: 200px;
+  
+}
+.container:hover{
+  overflow: auto;
 }
 .container img {
-  height: 30px;
-  width: 30px;
-  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
   border-radius: 50%;
 }

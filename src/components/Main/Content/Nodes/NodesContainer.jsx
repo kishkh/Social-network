@@ -12,9 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddNode: (tasks, memories, nodes) => {
-      
       dispatch(addNodeCreator())
-      // dispatch(updateProfileStatsCreator(tasks, memories, nodes))
     },
     onUpdateNodeValue: (value) => {
       dispatch(updateNodeValueCreator(value))

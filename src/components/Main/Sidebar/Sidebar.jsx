@@ -11,6 +11,7 @@ const Sidebar = (props) => {
       <SideItem name='Tasks' link='/tasks' />
       <SideItem name='Memories' link='/memories' />
       <SideItem name='Nodes' link='/nodes' />
+      <SideItem name='Users' link='/users' />
       <SideItem name='Settings' link='/settings' />
       <Friends users={props.users} friends={props.friends} />
     </div>
