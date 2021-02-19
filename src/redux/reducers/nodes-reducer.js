@@ -27,21 +27,21 @@ const nodesReducer = (state = initialState, action) => {
       return state
     case 'Update-node-value':
       return { ...state, textValue: action.value }
-    case 'Remove-node': {
-      let stateCopy = JSON.parse(JSON.stringify(state))
-      const newNodes = stateCopy.nodes.filter(node => node.idNode !== action.id)
-      stateCopy.nodes = newNodes;
-      return stateCopy;
-    }
-    case 'Favorite-node': {
-      let stateCopy = JSON.parse(JSON.stringify(state))
-      stateCopy.nodes.forEach(node => {
-        if (node.idNode === action.id) {
-          node.favorite = !node.favorite
-        }
-      })
-      return stateCopy;
-    }
+    case 'Remove-node': 
+      return{
+        ...state,
+        nodes: state.nodes.filter(n => n.idNode !== action.id)
+      }
+    case 'Favorite-node': 
+      return {
+        ...state, 
+        nodes: state.nodes.map(n => {
+          if (n.idNode === action.id) {
+            return {...n, favorite: !n.favorite}
+          }
+          return n;
+        })
+      }
     default:
       return state;
   }

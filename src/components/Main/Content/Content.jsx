@@ -7,6 +7,7 @@ import Settings from './Settings/Settings';
 import ProfileContainer from './Profile/ProfileContainer';
 import TasksContainer from './Tasks/TasksContainer';
 import MemoriesContainer from './Memories/MemoriesContainer';
+import UsersContainer from './Users/UsersContainer';
 const Content = (props) => {
   return (
     <div className={classes.content}>
@@ -26,6 +27,9 @@ const Content = (props) => {
       <Route
         path='/nodes'
         render={() => <NodesContainer />}
+      />
+      <Route
+        path='/users' render={() => <UsersContainer />}
       />
       <Route
         path='/settings' render={Settings}
