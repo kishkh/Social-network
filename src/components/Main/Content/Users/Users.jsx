@@ -3,19 +3,34 @@ import classes from './Users.module.css';
 import User from './User/User';
 
 const Users = (props) => {
-  const users = props.users.filter(u => u.id !== 0).map(u => {
+  const totalPages = Math.ceil(props.usersCount / props.usersOnPage)
+  const pages = []
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i)
+  }
+  const users = props.users.map(u => {
     return (
-      <User 
+      <User
         key={u.id} changeFollow={props.changeFollow}
-        followed={u.followed} name={u.name} 
-        id={u.id} city={u.location.city} 
-        country={u.location.country} ava={u.ava}
+        followed={u.followed} name={u.name}
+        id={u.id} ava={u.photos.small}
       />
     )
-  }) 
+  })
   return (
-    <div className={classes.container}>{users}</div>
+    <div className={classes.container}>
+      <div className={classes.pageContainer}>
+        {
+          pages.map(m => <span
+            className={m === props.currentPage ? `${classes.page} ${classes.selected}` : classes.page}
+            onClick={() => { props.currentPageValue(m) }}>{m}</span>)
+        }
+      </div>
+      {users}
+    </div>
+
   )
+
 }
 
 export default Users;

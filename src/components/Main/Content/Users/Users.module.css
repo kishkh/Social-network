@@ -4,3 +4,21 @@
   align-items: center;
   margin: 20px 0;
 }
+.pageContainer{
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+
+}
+.page{
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  font-size: 10px;
+
+}
+.selected{
+  font-weight: 700;
+  font-size: 10px;
+  color: antiquewhite;
+}
